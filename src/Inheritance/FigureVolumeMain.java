@@ -8,6 +8,12 @@ import java.util.Scanner;
 public class FigureVolumeMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        Shape cylinder1 = new Cylinder(1, 1);
+        Ball ball1 = new Ball(100);
+        System.out.println("Compare Shape to Ball: " + cylinder1.compareTo(ball1));
+        System.out.println("Compare Ball to Shape: " + ball1.compareTo(cylinder1));
+
         Box box = new FigureVolumeMain().createBox();
 
         boolean isExit = false;
@@ -64,15 +70,18 @@ public class FigureVolumeMain {
         }
         return box;
     }
-
-    //private static
 }
 
-abstract class Shape {
-    public abstract double getVolume();
+interface Shape extends Comparable<Shape> {
+    double getVolume();
+
+    @Override
+    default int compareTo(Shape o) {
+        return Double.compare(getVolume(), o.getVolume());
+    }
 }
 
-abstract class SolidOfRevolution extends Shape {
+abstract class SolidOfRevolution implements Shape {
     public double radius;
 
     public SolidOfRevolution(double radius) {
@@ -110,7 +119,7 @@ class Ball extends SolidOfRevolution {
     }
 }
 
-class Pyramid extends Shape {
+class Pyramid implements Shape {
     public double s;
     public double h;
 
@@ -125,7 +134,7 @@ class Pyramid extends Shape {
     }
 }
 
-class Box extends Shape {
+class Box implements Shape {
     private final ArrayList<Shape> shapeList = new ArrayList<>();
     private final double volume;
 
