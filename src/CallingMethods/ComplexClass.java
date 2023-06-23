@@ -7,7 +7,7 @@ public class ComplexClass {
         long c = 25;
         float d = 12.34f;
 
-        mixedMethod((int) d, (double) b, c);
+        mixedMethod((int) d, b, c);
         modifiedMethod(b, (float) a);
         mixedMethod(b, a, c);
         modifiedMethod(c, d);

@@ -1,11 +1,13 @@
 package Super;
 
+@SuppressWarnings("unused")
 public class Main {
     public static void main(String[] args) {
             C c = new C();
     }
 }
 
+@SuppressWarnings("unused")
 class A {
     protected int n = 10;
 }
