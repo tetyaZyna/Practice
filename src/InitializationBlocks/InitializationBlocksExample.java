@@ -1,6 +1,6 @@
 package InitializationBlocks;
 
-public class Main {
+public class InitializationBlocksExample {
     public static void main(String[] args) {
         MagicNumber[] numbers = new MagicNumber[8];
 
