@@ -1,4 +1,4 @@
-package CallingMethods;
+package OOP.CallingMethods;
 
 public class ComplexClass {
     public static void main(String[] args) {

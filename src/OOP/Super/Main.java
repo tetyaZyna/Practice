@@ -1,4 +1,4 @@
-package Super;
+package OOP.Super;
 
 @SuppressWarnings("unused")
 public class Main {

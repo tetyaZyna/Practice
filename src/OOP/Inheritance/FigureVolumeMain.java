@@ -1,4 +1,4 @@
-package Inheritance;
+package OOP.Inheritance;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
