@@ -50,31 +50,27 @@ class Solution {
         if (numRows == 1) {
             return s;
         }
-        int step = 2 * numRows - 2;
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < s.length(); i += step) {
-            stringBuilder.append(s.charAt(i));
-        }
-        int localUpStep;
-        int localDownStep;
+        int step;
         boolean isUp;
-        for (int j = 1; j < numRows - 1; j++) {
+        for (int j = 0; j < numRows; j++) {
             isUp = false;
             for (int k = j; k < s.length();) {
                 stringBuilder.append(s.charAt(k));
                 if (isUp) {
-                    localUpStep = j * 2;
-                    k += localUpStep;
+                    step = j * 2;
+                    k += step;
                     isUp = false;
                 } else {
-                    localDownStep = 2 * (numRows - j) - 2;
-                    k += localDownStep;
-                    isUp = true;
+                    if (j > 0 && j < numRows - 1) {
+                        step = 2 * (numRows - j) - 2;
+                        isUp = true;
+                    } else {
+                        step = 2 * numRows - 2;
+                    }
+                    k += step;
                 }
             }
-        }
-        for (int q = numRows - 1; q < s.length(); q += step) {
-            stringBuilder.append(s.charAt(q));
         }
         return String.valueOf(stringBuilder);
     }
